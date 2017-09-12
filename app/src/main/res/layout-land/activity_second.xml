@@ -26,6 +26,8 @@
         android:weightSum="2">
 
         <Button
+            android:id="@+id/simple"
+            android:onClick="goToThird"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginTop="0dp"
@@ -33,6 +35,8 @@
             android:layout_weight="1"/>
 
         <Button
+            android:id="@+id/tarzan"
+            android:onClick="goToThird"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:text="Tarzan"
@@ -47,16 +51,21 @@
 
 
         <Button
+            android:id="@+id/university"
+            android:onClick="goToThird"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:text="University"
             android:layout_weight="1"/>
 
         <Button
+            android:id="@+id/clothes"
+            android:onClick="goToThird"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:text="Clothes"
             android:layout_weight="1"/>
+
     </LinearLayout>
 
     <LinearLayout
@@ -67,17 +76,20 @@
 
 
         <Button
+            android:id="@+id/dance"
+            android:onClick="goToThird"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:text="Dance"
             android:layout_weight="1"/>
 
         <Button
+            android:id="@id/random"
+            android:onClick="goToThird"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:text="Random"
             android:backgroundTint="#aa0000"
-
             android:layout_weight="1"/>
     </LinearLayout>
     
