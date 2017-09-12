@@ -13,8 +13,33 @@ public class SecondActivity extends AppCompatActivity {
         setContentView(R.layout.activity_second);
     }
 
-    public void goToThird(View view){
-        Intent intent = new Intent(this, ThirdActivity.class);
+    public void goToThirdsimple(View view){
+        Intent intent = new Intent(this,ThirdActivity.class);
+        startActivity(intent);
+        finish();
+    }
+    public void goToThirdtarzan(View view){
+        Intent intent = new Intent(this,ThirdActivity.class);
+        startActivity(intent);
+        finish();
+    }
+    public void goToThirduniversity(View view){
+        Intent intent = new Intent(this,ThirdActivity.class);
+        startActivity(intent);
+        finish();
+    }
+    public void goToThirdclothes(View view){
+        Intent intent = new Intent(this,ThirdActivity.class);
+        startActivity(intent);
+        finish();
+    }
+    public void goToThirddance(View view){
+        Intent intent = new Intent(this,ThirdActivity.class);
+        startActivity(intent);
+        finish();
+    }
+    public void goToThirdrandom(View view){
+        Intent intent = new Intent(this,ThirdActivity.class);
         startActivity(intent);
         finish();
     }

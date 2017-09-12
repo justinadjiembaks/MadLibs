@@ -27,7 +27,7 @@
 
         <Button
             android:id="@+id/simple"
-            android:onClick="goToThird"
+            android:onClick="goToThirdsimple"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginTop="0dp"
@@ -36,7 +36,7 @@
 
         <Button
             android:id="@+id/tarzan"
-            android:onClick="goToThird"
+            android:onClick="goToThirdtarzan"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:text="Tarzan"
@@ -52,7 +52,7 @@
 
         <Button
             android:id="@+id/university"
-            android:onClick="goToThird"
+            android:onClick="goToThirduniversity"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:text="University"
@@ -60,7 +60,7 @@
 
         <Button
             android:id="@+id/clothes"
-            android:onClick="goToThird"
+            android:onClick="goToThirdclothes"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:text="Clothes"
@@ -77,7 +77,7 @@
 
         <Button
             android:id="@+id/dance"
-            android:onClick="goToThird"
+            android:onClick="goToThirddance"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:text="Dance"
@@ -85,7 +85,7 @@
 
         <Button
             android:id="@id/random"
-            android:onClick="goToThird"
+            android:onClick="goToThirdrandom"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:text="Random"
@@ -93,6 +93,6 @@
             android:layout_weight="1"/>
     </LinearLayout>
     
-</LinearLayout>
+</LinearLayout>0
 
 
