@@ -6,6 +6,9 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.TextView;
 
+import java.io.IOException;
+import java.io.InputStream;
+
 public class LastActivity extends AppCompatActivity {
 
     @Override
@@ -15,6 +18,14 @@ public class LastActivity extends AppCompatActivity {
 
         TextView mTextView = (TextView) findViewById(R.id.story);
         mTextView.setText("test");
+
+        try{
+            InputStream is = getAssets().open("madlib0_simple.txt");
+        } catch (IOException ex){
+            ex.printStackTrace();
+        }
+
+
     }
 
     public void goToSecond(View view){
