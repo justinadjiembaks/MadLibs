@@ -11,6 +11,9 @@ public class ThirdActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_third);
+
+        Intent intent = getIntent();
+        String receivedstring = intent.getStringExtra("number");
     }
 
     public void goToLast(View view){
