@@ -15,6 +15,7 @@ import java.util.Random;
 public class ThirdActivity extends AppCompatActivity {
 
     TextView text;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -31,7 +32,7 @@ public class ThirdActivity extends AppCompatActivity {
 
         InputStream is = null;
 
-        if (receivedint != 1 || receivedint != 2|| receivedint != 3|| receivedint != 4|| receivedint != 5){
+        if (receivedint != 1 && receivedint != 2 && receivedint != 3 && receivedint != 4 && receivedint != 5){
 
             Random rand = new Random();
             int randomnumber = rand.nextInt(5);
@@ -48,12 +49,16 @@ public class ThirdActivity extends AppCompatActivity {
             is = this.getResources().openRawResource(R.raw.madlib2_university);
         }
         else if (receivedint == 4){
-            is = this.getResources().openRawResource(R.raw.madlib3_clothes);
-        }
-        else {
             is = this.getResources().openRawResource(R.raw.madlib4_dance);
         }
+        else if(receivedint == 5){
+            is = this.getResources().openRawResource(R.raw.madlib3_clothes);
+        }
+        else{
+            is = null;
+        }
 
+        String story = Story.class.toString();
 
         BufferedReader reader = new BufferedReader(new InputStreamReader(is));
 
@@ -71,8 +76,8 @@ public class ThirdActivity extends AppCompatActivity {
             }
         }
 
-    }
 
+    }
 
     public void goToLast(View view){
 
