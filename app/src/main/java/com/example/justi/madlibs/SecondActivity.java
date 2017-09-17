@@ -18,14 +18,14 @@ public class SecondActivity extends AppCompatActivity{
     public void goToThirdsimple(View view){
 
         Intent intent = new Intent(this,ThirdActivity.class);
-        intent.putExtra("number","simple");
+        intent.putExtra("number",1);
         startActivity(intent);
         finish();
     }
     public void goToThirdtarzan(View view){
 
         Intent intent = new Intent(this,ThirdActivity.class);
-        intent.putExtra("number","tarzan");
+        intent.putExtra("number",2);
         startActivity(intent);
         finish();
         }
@@ -33,7 +33,7 @@ public class SecondActivity extends AppCompatActivity{
     public void goToThirduniversity(View view){
 
         Intent intent = new Intent(this,ThirdActivity.class);
-        intent.putExtra("number","university");
+        intent.putExtra("number",3);
         startActivity(intent);
         finish();
     }
@@ -41,7 +41,7 @@ public class SecondActivity extends AppCompatActivity{
     public void goToThirddance(View view){
 
         Intent intent = new Intent(this,ThirdActivity.class);
-        intent.putExtra("number","dance");
+        intent.putExtra("number",4);
         startActivity(intent);
         finish();
     }
@@ -49,14 +49,14 @@ public class SecondActivity extends AppCompatActivity{
     public void goToThirdclothes(View view){
 
         Intent intent = new Intent(this,ThirdActivity.class);
-        intent.putExtra("number","clothes");
+        intent.putExtra("number",5);
         startActivity(intent);
         finish();
     }
     public void goToThirdrandom(View view){
 
         Intent intent = new Intent(this,ThirdActivity.class);
-        intent.putExtra("number","random");
+        intent.putExtra("number",100);
         startActivity(intent);
         finish();
         }

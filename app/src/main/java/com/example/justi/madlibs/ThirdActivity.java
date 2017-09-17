@@ -10,6 +10,7 @@ import android.widget.TextView;
 import java.io.BufferedReader;
 import java.io.InputStream;
 import java.io.InputStreamReader;
+import java.util.Random;
 
 public class ThirdActivity extends AppCompatActivity {
 
@@ -20,34 +21,39 @@ public class ThirdActivity extends AppCompatActivity {
         setContentView(R.layout.activity_third);
 
         Intent intent = getIntent();
-        String receivedstring = intent.getStringExtra("number");
+        int receivedint = intent.getIntExtra("number",0);
 
         text = (TextView)findViewById(R.id.story);
-        //text.setText(receivedstring);
+
 
         String data = "";
         StringBuffer sbuffer = new StringBuffer();
 
         InputStream is = null;
 
-        if (receivedstring == "simple"){
+        if (receivedint != 1 || receivedint != 2|| receivedint != 3|| receivedint != 4|| receivedint != 5){
+
+            Random rand = new Random();
+            int randomnumber = rand.nextInt(5);
+            receivedint = randomnumber;
+
+        }
+        if (receivedint == 1){
             is = this.getResources().openRawResource(R.raw.madlib0_simple);
         }
-        else if (receivedstring == "tarzan"){
+        else if (receivedint == 2){
             is = this.getResources().openRawResource(R.raw.madlib1_tarzan);
         }
-        else if (receivedstring == "university"){
+        else if (receivedint == 3){
             is = this.getResources().openRawResource(R.raw.madlib2_university);
         }
-        else if (receivedstring == "clothes"){
+        else if (receivedint == 4){
             is = this.getResources().openRawResource(R.raw.madlib3_clothes);
         }
-        else if (receivedstring == "dance"){
+        else {
             is = this.getResources().openRawResource(R.raw.madlib4_dance);
         }
-        else {
-            is = this.getResources().openRawResource(R.raw.madlib1_tarzan);
-        }
+
 
         BufferedReader reader = new BufferedReader(new InputStreamReader(is));
 
@@ -64,6 +70,7 @@ public class ThirdActivity extends AppCompatActivity {
                 e.printStackTrace();
             }
         }
+
     }
 
 
