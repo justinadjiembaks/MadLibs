@@ -35,11 +35,13 @@
         android:weightSum="4">
 
         <EditText
+            android:id="@+id/hintje"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:text=""
-            android:hint="Iets"
+            android:hint=""
             android:layout_weight="3"/>
+
         <Button
             android:id="@+id/button"
             android:layout_width="wrap_content"
@@ -51,7 +53,7 @@
     </LinearLayout>
 
     <TextView
-        android:id="@+id/story"
+        android:id="@+id/storytext"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:text="" />

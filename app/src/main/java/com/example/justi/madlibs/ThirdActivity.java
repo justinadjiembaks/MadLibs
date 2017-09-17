@@ -5,16 +5,24 @@ import android.renderscript.ScriptGroup;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
+import android.widget.EditText;
 import android.widget.TextView;
 
 import java.io.BufferedReader;
 import java.io.InputStream;
 import java.io.InputStreamReader;
 import java.util.Random;
+import com.example.justi.madlibs.Story;
+
+
+import static com.example.justi.madlibs.R.id.hintje;
+import static com.example.justi.madlibs.R.id.storytext;
 
 public class ThirdActivity extends AppCompatActivity {
 
     TextView text;
+    Story inputstream;
+    EditText hint;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -24,11 +32,8 @@ public class ThirdActivity extends AppCompatActivity {
         Intent intent = getIntent();
         int receivedint = intent.getIntExtra("number",0);
 
-        text = (TextView)findViewById(R.id.story);
-
-
-        String data = "";
-        StringBuffer sbuffer = new StringBuffer();
+        text = (TextView)findViewById(storytext);
+        hint = (EditText)findViewById(hintje);
 
         InputStream is = null;
 
@@ -40,42 +45,29 @@ public class ThirdActivity extends AppCompatActivity {
 
         }
         if (receivedint == 1){
-            is = this.getResources().openRawResource(R.raw.madlib0_simple);
+            inputstream = new Story(this.getResources().openRawResource(R.raw.madlib0_simple));
         }
         else if (receivedint == 2){
-            is = this.getResources().openRawResource(R.raw.madlib1_tarzan);
+            inputstream = new Story(this.getResources().openRawResource(R.raw.madlib1_tarzan));
         }
         else if (receivedint == 3){
-            is = this.getResources().openRawResource(R.raw.madlib2_university);
+            inputstream = new Story(this.getResources().openRawResource(R.raw.madlib2_university));
         }
         else if (receivedint == 4){
-            is = this.getResources().openRawResource(R.raw.madlib4_dance);
+            inputstream = new Story(this.getResources().openRawResource(R.raw.madlib4_dance));
         }
         else if(receivedint == 5){
-            is = this.getResources().openRawResource(R.raw.madlib3_clothes);
+            inputstream = new Story(this.getResources().openRawResource(R.raw.madlib3_clothes));
         }
         else{
+            inputstream = null;
             is = null;
         }
 
-        String story = Story.class.toString();
-
-        BufferedReader reader = new BufferedReader(new InputStreamReader(is));
-
-        if (is != null){
-
-            try{
-                while((data = reader.readLine()) != null){
-                    sbuffer.append(data + " ");
-                }
-                text.setText(sbuffer);
-                is.close();
-            }
-            catch (Exception e){
-                e.printStackTrace();
-            }
-        }
-
+        String hinttext = inputstream.getNextPlaceholder();
+        String test = inputstream.toString();;
+        text.setText(test);
+        hint.setHint(hinttext);
 
     }
 
