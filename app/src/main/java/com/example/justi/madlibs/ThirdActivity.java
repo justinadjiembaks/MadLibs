@@ -85,7 +85,7 @@ public class ThirdActivity extends AppCompatActivity {
             public void onClick(View view) {
 
                 String new_word = hint.getText().toString();
-                new_word.toLowerCase();
+                new_word = new_word.toLowerCase();
                 story.fillInPlaceholder(new_word);
 
                 String hinttext = story.getNextPlaceholder();
