@@ -18,7 +18,7 @@ public class LastActivity extends AppCompatActivity {
 
 
         final Intent intent = getIntent();
-        String receivedstring = intent.getStringExtra("story");
+        String receivedstring = intent.getStringExtra("completestory");
 
         TextView mTextView = (TextView) findViewById(R.id.story);
         mTextView.setText(receivedstring);

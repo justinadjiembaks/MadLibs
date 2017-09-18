@@ -76,7 +76,7 @@ public class ThirdActivity extends AppCompatActivity {
         words.setText(String.valueOf(counter) + " word(s) left");
 
         String test = inputstream.toString();
-        text.setText(test);
+
 
         btn.setOnClickListener(new View.OnClickListener() {
 
@@ -94,11 +94,16 @@ public class ThirdActivity extends AppCompatActivity {
                 words.setText(String.valueOf(counter) + " word(s) left");
 
                 String test = inputstream.toString();
-                text.setText(test);
+
 
                 if (counter == 0) {
 
-                    startActivity(new Intent(ThirdActivity.this, LastActivity.class));
+
+                    Intent intent = new Intent(ThirdActivity.this, LastActivity.class);
+                    intent.putExtra("completestory",test);
+                    startActivity(intent);
+                    finish();
+
 
                 }
             }
