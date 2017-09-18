@@ -98,7 +98,8 @@ public class ThirdActivity extends AppCompatActivity {
 
                 if (counter == 0) {
 
-                    startActivity(new Intent(this,LastActivity.class));
+                    startActivity(new Intent(ThirdActivity.this, LastActivity.class));
+
                 }
             }
         });
