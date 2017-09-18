@@ -12,6 +12,7 @@ import android.widget.TextView;
 import java.io.BufferedReader;
 import java.io.InputStream;
 import java.io.InputStreamReader;
+import java.io.OutputStream;
 import java.util.Random;
 import com.example.justi.madlibs.Story;
 
@@ -24,7 +25,7 @@ import static com.example.justi.madlibs.R.id.wordsleft;
 public class ThirdActivity extends AppCompatActivity {
 
     TextView text;
-    Story inputstream;
+    Story story;
     EditText hint;
     TextView words;
     int counter = 1;
@@ -54,28 +55,28 @@ public class ThirdActivity extends AppCompatActivity {
 
         }
         if (receivedint == 1) {
-            inputstream = new Story(this.getResources().openRawResource(R.raw.madlib0_simple));
+            story = new Story(this.getResources().openRawResource(R.raw.madlib0_simple));
         } else if (receivedint == 2) {
-            inputstream = new Story(this.getResources().openRawResource(R.raw.madlib1_tarzan));
+            story = new Story(this.getResources().openRawResource(R.raw.madlib1_tarzan));
         } else if (receivedint == 3) {
-            inputstream = new Story(this.getResources().openRawResource(R.raw.madlib2_university));
+            story = new Story(this.getResources().openRawResource(R.raw.madlib2_university));
         } else if (receivedint == 4) {
-            inputstream = new Story(this.getResources().openRawResource(R.raw.madlib4_dance));
+            story = new Story(this.getResources().openRawResource(R.raw.madlib4_dance));
         } else if (receivedint == 5) {
-            inputstream = new Story(this.getResources().openRawResource(R.raw.madlib3_clothes));
+            story = new Story(this.getResources().openRawResource(R.raw.madlib3_clothes));
         } else {
-            inputstream = null;
+            story = null;
             is = null;
         }
 
 
-        String hinttext = inputstream.getNextPlaceholder();
+        String hinttext = story.getNextPlaceholder();
         hint.setHint(hinttext);
 
-        counter = inputstream.getPlaceholderCount();
+        counter = story.getPlaceholderCount();
         words.setText(String.valueOf(counter) + " word(s) left");
 
-        String test = inputstream.toString();
+        String test = story.toString();
 
 
         btn.setOnClickListener(new View.OnClickListener() {
@@ -84,20 +85,20 @@ public class ThirdActivity extends AppCompatActivity {
             public void onClick(View view) {
 
                 String new_word = hint.getText().toString();
-                inputstream.fillInPlaceholder(new_word);
+                new_word.toLowerCase();
+                story.fillInPlaceholder(new_word);
 
-                String hinttext = inputstream.getNextPlaceholder();
+                String hinttext = story.getNextPlaceholder();
                 hint.setHint(hinttext);
                 hint.setText("");
 
-                counter = inputstream.getPlaceholderRemainingCount();
+                counter = story.getPlaceholderRemainingCount();
                 words.setText(String.valueOf(counter) + " word(s) left");
 
-                String test = inputstream.toString();
+                String test = story.toString();
 
 
                 if (counter == 0) {
-
 
                     Intent intent = new Intent(ThirdActivity.this, LastActivity.class);
                     intent.putExtra("completestory",test);
@@ -110,6 +111,28 @@ public class ThirdActivity extends AppCompatActivity {
         });
     }
 
+    @Override
+    public void onSaveInstanceState(Bundle outState){
+        super.onSaveInstanceState(outState);
+
+        outState.putSerializable("makingstory",story);
+
+        int counter = story.getPlaceholderRemainingCount();
+        outState.putInt("counter", counter);
+
+    }
+    @Override
+    public void onRestoreInstanceState(Bundle inState) {
+        super.onRestoreInstanceState(inState);
+
+        story = (Story)inState.getSerializable("makingstory");
+
+        int madecounter = inState.getInt("counter",0);
+        words.setText(String.valueOf(madecounter) + " word(s) left");
+
+
+
+    }
 
 
 
