@@ -16,15 +16,12 @@ public class LastActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_last);
 
+
+        final Intent intent = getIntent();
+        String receivedstring = intent.getStringExtra("story");
+
         TextView mTextView = (TextView) findViewById(R.id.story);
-        mTextView.setText("test");
-
-        try{
-            InputStream is = getAssets().open("madlib0_simple.txt");
-        } catch (IOException ex){
-            ex.printStackTrace();
-        }
-
+        mTextView.setText(receivedstring);
 
     }
 
